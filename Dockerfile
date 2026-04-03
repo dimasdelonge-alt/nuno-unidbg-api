@@ -5,6 +5,7 @@ FROM maven:3.8.4-openjdk-11-slim AS build
 RUN apt-get update && apt-get install -y git
 RUN git clone https://github.com/zhkl0228/unidbg.git /unidbg
 WORKDIR /unidbg
+RUN git checkout v0.9.8
 RUN mvn clean install -DskipTests -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
 
 WORKDIR /app
